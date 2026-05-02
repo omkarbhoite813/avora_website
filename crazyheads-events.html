@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crazy HEDZ | Events & Tickets</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/crazyheads.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <img src="images/crazyhedz.png" class="logo-img-ch" alt="Crazy Hedz">
+        </div>
+        <button class="nav-toggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="crazyheads.html">HOME</a></li>
+            <li><a href="#tickets">EVENTS</a></li>
+            <li><a href="#tickets">TICKETS</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li class="nav-dropdown-item" id="joinDropdownItem">
+                <button class="nav-dropdown-btn" id="joinDropdownBtn">
+                    BE PART OF IT <span class="nav-chevron">▾</span>
+                </button>
+                <ul class="nav-dropdown" id="joinDropdown">
+                    <li><button class="nd-opt partner-trigger">Partner with Your College</button></li>
+                    <li><button class="nd-opt ambassador-trigger">Be a CrazyHead Ambassador</button></li>
+                </ul>
+            </li>
+            <li><a href="avora.html" class="avora-link">AVORA <span class="tilt-arrow">↗</span></a></li>
+        </ul>
+    </nav>
+
+    <!-- ── About Section ────────────────────────────────────────── -->
+    <section class="about-section" id="about">
+        <div class="section-header" data-reveal>
+            <p class="section-subtitle">Who We Are</p>
+            <h2 class="section-title">The Movement</h2>
+            <p class="section-desc">Born from the underground, built for the culture.</p>
+            <div class="section-line"></div>
+        </div>
+        <div class="about-body" data-reveal data-delay="150">
+            <p class="about-lead">We are Crazy HEDZ — India's most electrifying youth event brand. We don't just host events; we engineer experiences that hit different.</p>
+            <p class="about-sub">From underground techno sessions to massive open-air festivals, every Crazy HEDZ event is a convergence of art, music, and raw energy. We build spaces where the bold come alive — where the music doesn't stop and every night becomes a memory.</p>
+            <p class="about-sub">Founded by a collective of event obsessives, we've taken our passion from small intimate gigs to India's biggest youth festivals. We're not just throwing parties — we're building a culture.</p>
+        </div>
+        <div class="stats-row" data-reveal data-delay="300">
+            <div class="stat-item">
+                <span class="stat-number">50+</span>
+                <span class="stat-label">Events Hosted</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">200k+</span>
+                <span class="stat-label">Tickets Sold</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">30+</span>
+                <span class="stat-label">Cities Covered</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">500+</span>
+                <span class="stat-label">Artists Featured</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Tickets Section ───────────────────────────────────────── -->
+    <section class="tickets-section" id="tickets">
+        <div class="section-header" data-reveal>
+            <p class="section-subtitle">Events</p>
+            <h2 class="section-title">Our Events</h2>
+            <p class="section-desc">From intimate underground sessions to massive open-air festivals.</p>
+            <div class="section-line"></div>
+        </div>
+
+        <!-- Filter Chips -->
+        <div class="ticket-chips" data-reveal data-delay="150">
+            <button class="ticket-chip" data-filter="past">Past</button>
+            <button class="ticket-chip active" data-filter="present">Present</button>
+            <button class="ticket-chip" data-filter="upcoming">Upcoming</button>
+        </div>
+
+        <!-- Cards Grid (loaded from Firestore) -->
+        <div class="tickets-grid" id="ticketsGrid">
+            <div class="tickets-loading" id="ticketsLoading">
+                <div class="tl-ring"></div>
+                <span>Loading events...</span>
+            </div>
+        </div>
+
+        <!-- Static fallback cards (hidden until JS removes the grid above) -->
+        <div class="tickets-grid tickets-static" id="ticketsStatic" style="display:none">
+
+            <!-- ── PAST ── -->
+            <div class="ticket-card past-card" data-status="past">
+                <div class="ticket-main">
+                    <div class="ticket-top-row">
+                        <span class="ticket-status-tag past-tag">Ended</span>
+                        <span class="ticket-date">Jan 18, 2025</span>
+                    </div>
+                    <h3 class="ticket-name">Neon Nights</h3>
+                    <p class="ticket-subname">Underground Rave</p>
+                    <div class="ticket-info">
+                        <span>📍 Bandra, Mumbai</span>
+                        <span>🎵 Techno · Minimal · Dark</span>
+                        <span>👥 Attended: 800</span>
+                    </div>
+                    <div class="ticket-footer">
+                        <span class="ticket-sold-out">SOLD OUT</span>
+                        <a href="#" class="ticket-btn past-btn">View Recap →</a>
+                    </div>
+                </div>
+                <div class="ticket-stub">
+                    <span class="stub-brand">Crazy HEDZ</span>
+                    <div class="stub-barcode"></div>
+                    <span class="stub-num">#CH001</span>
+                </div>
+            </div>
+
+            <div class="ticket-card past-card" data-status="past">
+                <div class="ticket-main">
+                    <div class="ticket-top-row">
+                        <span class="ticket-status-tag past-tag">Ended</span>
+                        <span class="ticket-date">Mar 8, 2025</span>
+                    </div>
+                    <h3 class="ticket-name">Bass Drop Vol.3</h3>
+                    <p class="ticket-subname">Warehouse Party</p>
+                    <div class="ticket-info">
+                        <span>📍 Koregaon Park, Pune</span>
+                        <span>🎵 Bass · DnB · Jungle</span>
+                        <span>👥 Attended: 1,200</span>
+                    </div>
+                    <div class="ticket-footer">
+                        <span class="ticket-sold-out">SOLD OUT</span>
+                        <a href="#" class="ticket-btn past-btn">View Recap →</a>
+                    </div>
+                </div>
+                <div class="ticket-stub">
+                    <span class="stub-brand">Crazy HEDZ</span>
+                    <div class="stub-barcode"></div>
+                    <span class="stub-num">#CH002</span>
+                </div>
+            </div>
+
+            <div class="ticket-card past-card" data-status="past">
+                <div class="ticket-main">
+                    <div class="ticket-top-row">
+                        <span class="ticket-status-tag past-tag">Ended</span>
+                        <span class="ticket-date">Apr 5, 2025</span>
+                    </div>
+                    <h3 class="ticket-name">Chromatic</h3>
+                    <p class="ticket-subname">Art &amp; Music Festival</p>
+                    <div class="ticket-info">
+                        <span>📍 NGMA, Bangalore</span>
+                        <span>🎵 Ambient · Experimental</span>
+                        <span>👥 Attended: 600</span>
+                    </div>
+                    <div class="ticket-footer">
+                        <span class="ticket-sold-out">SOLD OUT</span>
+                        <a href="#" class="ticket-btn past-btn">View Recap →</a>
+                    </div>
+                </div>
+                <div class="ticket-stub">
+                    <span class="stub-brand">Crazy HEDZ</span>
+                    <div class="stub-barcode"></div>
+                    <span class="stub-num">#CH003</span>
+                </div>
+            </div>
+
+            <!-- ── PRESENT ── -->
+            <div class="ticket-card present-card" data-status="present">
+                <div class="ticket-main">
+                    <div class="ticket-top-row">
+                        <span class="ticket-status-tag present-tag"><span class="pulse-dot"></span>🔴 LIVE NOW</span>
+                        <span class="ticket-date">Apr 25–26, 2025</span>
+                    </div>
+                    <h3 class="ticket-name">⚡ Electric Dreams</h3>
+                    <p class="ticket-subname">🎪 Open Air Festival</p>
+                    <div class="ticket-info">
+                        <span>📍 KTPO Ground, Bangalore</span>
+                        <span>🎵 Electronic · Techno · House</span>
+                        <span>👥 Capacity: 5,000</span>
+                    </div>
+                    <div class="ticket-footer">
+                        <a href="#" class="ticket-btn register-btn booking-trigger"
+                           data-normal="199" data-premium="499" data-luxury="999">Register Yourself →</a>
+                    </div>
+                </div>
+                <div class="ticket-stub">
+                    <span class="stub-brand">Crazy HEDZ</span>
+                    <div class="stub-barcode"></div>
+                    <span class="stub-num">#CH004</span>
+                </div>
+            </div>
+
+            <div class="ticket-card present-card" data-status="present">
+                <div class="ticket-main">
+                    <div class="ticket-top-row">
+                        <span class="ticket-status-tag present-tag"><span class="pulse-dot"></span>🎯 THIS WEEKEND</span>
+                        <span class="ticket-date">Apr 27, 2025</span>
+                    </div>
+                    <h3 class="ticket-name">🔊 Bass Parade</h3>
+                    <p class="ticket-subname">🌃 Club Night · Rooftop</p>
+                    <div class="ticket-info">
+                        <span>📍 Rooftop 360, Mumbai</span>
+                        <span>🎵 Bass · UK Garage · Afro</span>
+                        <span>👥 Capacity: 600</span>
+                    </div>
+                    <div class="ticket-footer">
+                        <a href="#" class="ticket-btn register-btn booking-trigger"
+                           data-normal="199" data-premium="499" data-luxury="999">Register Yourself →</a>
+                    </div>
+                </div>
+                <div class="ticket-stub">
+                    <span class="stub-brand">Crazy HEDZ</span>
+                    <div class="stub-barcode"></div>
+                    <span class="stub-num">#CH005</span>
+                </div>
+            </div>
+
+            <!-- ── UPCOMING ── -->
+            <div class="ticket-card upcoming-card" data-status="upcoming">
+                <div class="ticket-main">
+                    <div class="ticket-top-row">
+                        <span class="ticket-status-tag upcoming-tag">🗓 Upcoming</span>
+                        <span class="ticket-date">Jun 15, 2025</span>
+                    </div>
+                    <h3 class="ticket-name">🏟 Rave Republic</h3>
+                    <p class="ticket-subname">🎨 Music &amp; Arts Festival</p>
+                    <div class="ticket-info">
+                        <span>📍 DDA Ground, Delhi</span>
+                        <span>🎵 EDM · House · Psy</span>
+                        <span>👥 Capacity: 8,000</span>
+                    </div>
+                    <div class="ticket-footer">
+                        <a href="#" class="ticket-btn register-btn booking-trigger"
+                           data-normal="199" data-premium="499" data-luxury="999">Register Yourself →</a>
+                    </div>
+                </div>
+                <div class="ticket-stub">
+                    <span class="stub-brand">Crazy HEDZ</span>
+                    <div class="stub-barcode"></div>
+                    <span class="stub-num">#CH006</span>
+                </div>
+            </div>
+
+            <div class="ticket-card upcoming-card" data-status="upcoming">
+                <div class="ticket-main">
+                    <div class="ticket-top-row">
+                        <span class="ticket-status-tag upcoming-tag">🗓 Upcoming</span>
+                        <span class="ticket-date">Aug 2, 2025</span>
+                    </div>
+                    <h3 class="ticket-name">💜 Purple Haze Fest</h3>
+                    <p class="ticket-subname">🌿 Outdoor Rave · 2 Days</p>
+                    <div class="ticket-info">
+                        <span>📍 MMRDA Ground, Mumbai</span>
+                        <span>🎵 Psychedelic · Trance</span>
+                        <span>👥 Capacity: 12,000</span>
+                    </div>
+                    <div class="ticket-footer">
+                        <a href="#" class="ticket-btn register-btn booking-trigger"
+                           data-normal="199" data-premium="499" data-luxury="999">Register Yourself →</a>
+                    </div>
+                </div>
+                <div class="ticket-stub">
+                    <span class="stub-brand">Crazy HEDZ</span>
+                    <div class="stub-barcode"></div>
+                    <span class="stub-num">#CH007</span>
+                </div>
+            </div>
+
+            <div class="ticket-card upcoming-card" data-status="upcoming">
+                <div class="ticket-main">
+                    <div class="ticket-top-row">
+                        <span class="ticket-status-tag upcoming-tag">🗓 Upcoming</span>
+                        <span class="ticket-date">Sep 20, 2025</span>
+                    </div>
+                    <h3 class="ticket-name">📡 Frequency Vol.1</h3>
+                    <p class="ticket-subname">🎤 Debut Festival</p>
+                    <div class="ticket-info">
+                        <span>📍 Hitex Ground, Hyderabad</span>
+                        <span>🎵 Techno · Melodic · Dark</span>
+                        <span>👥 Capacity: 3,000</span>
+                    </div>
+                    <div class="ticket-footer">
+                        <a href="#" class="ticket-btn register-btn booking-trigger"
+                           data-normal="199" data-premium="499" data-luxury="999">Register Yourself →</a>
+                    </div>
+                </div>
+                <div class="ticket-stub">
+                    <span class="stub-brand">Crazy HEDZ</span>
+                    <div class="stub-barcode"></div>
+                    <span class="stub-num">#CH008</span>
+                </div>
+            </div>
+
+            <!-- ── CAMPUS KICKOFF ── -->
+            <div class="ticket-card upcoming-card" data-status="upcoming">
+                <div class="ticket-main">
+                    <div class="ticket-top-row">
+                        <span class="ticket-status-tag upcoming-tag">🎓 Campus Event</span>
+                        <span class="ticket-date">Oct 5, 2025</span>
+                    </div>
+                    <h3 class="ticket-name">🏫 Campus Kickoff</h3>
+                    <p class="ticket-subname">🎉 College Night Edition</p>
+                    <div class="ticket-info">
+                        <span>📍 Your Campus, Pan India</span>
+                        <span>🎵 Bollywood · Hip-Hop · Dance</span>
+                        <span>👥 Open to all students</span>
+                    </div>
+                    <div class="ticket-footer">
+                        <a href="#" class="ticket-btn register-btn booking-trigger"
+                           data-normal="199" data-premium="499" data-luxury="999">Register Yourself →</a>
+                    </div>
+                </div>
+                <div class="ticket-stub">
+                    <span class="stub-brand">Crazy HEDZ</span>
+                    <div class="stub-barcode"></div>
+                    <span class="stub-num">#CH009</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ── Video Section ─────────────────────────────────────────── -->
+    <section class="video-bg-section">
+        <video class="video-bg-player" autoplay muted loop playsinline>
+            <source src="videos/crazyhedz.mp4" type="video/mp4">
+        </video>
+        <div class="video-bg-overlay"></div>
+        <div class="video-bg-content" data-reveal>
+            <span class="ch-video-tag">Feel the Energy</span>
+            <h2 class="ch-video-title">Where Every<br>Night Lives Forever</h2>
+            <p class="video-section-desc">Step into a world where the bass hits deep, the crowd moves as one, and every moment is electric.</p>
+            <a href="#tickets" class="hero-action-btn hero-action-main">Get Your Tickets</a>
+        </div>
+    </section>
+
+    <!-- ── Join the Movement ─────────────────────────────────────── -->
+    <section class="join-section" id="join">
+        <div class="section-header" data-reveal>
+            <p class="section-subtitle">Be Part of It</p>
+            <h2 class="section-title">Join the Movement</h2>
+            <p class="section-desc">Two ways to become part of the Crazy HEDZ story.</p>
+            <div class="section-line"></div>
+        </div>
+        <div class="join-cards-wrap">
+            <div class="join-card" data-reveal data-delay="100">
+                <span class="join-card-tag">Institutional</span>
+                <h3 class="join-card-title">Partner with Your College</h3>
+                <p class="join-card-body">Bring the CrazyHEDZ experience to your campus. We collaborate with college committees to co-host unforgettable events that your entire student community will talk about.</p>
+                <ul class="join-card-list">
+                    <li>Co-branded event production &amp; management</li>
+                    <li>Revenue sharing for your committee</li>
+                    <li>Full logistics &amp; artist booking support</li>
+                    <li>Exclusive CrazyHEDZ merchandise for attendees</li>
+                </ul>
+                <button class="join-card-btn partner-trigger">Partner With Us →</button>
+            </div>
+            <div class="join-card join-card-alt" data-reveal data-delay="200">
+                <span class="join-card-tag">Ambassador Program</span>
+                <h3 class="join-card-title">Be a CrazyHead Ambassador</h3>
+                <p class="join-card-body">Become the face of CrazyHEDZ at your college. Spread the word, sell tickets, and earn rewards — while building your network and event management skills.</p>
+                <ul class="join-card-list">
+                    <li>Exclusive referral code &amp; earnings per ticket</li>
+                    <li>Priority passes to all CrazyHEDZ events</li>
+                    <li>Ambassador-only merch &amp; recognition</li>
+                    <li>Build real industry connections</li>
+                </ul>
+                <button class="join-card-btn ambassador-trigger">Apply Now →</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Contact Us ─────────────────────────────────────────────── -->
+    <section class="ch-contact-section" id="contact">
+        <div class="section-header" data-reveal>
+            <p class="section-subtitle">Get in Touch</p>
+            <h2 class="section-title">Contact Us</h2>
+            <p class="section-desc">Have a question or want to work with us? We'd love to hear from you.</p>
+            <div class="section-line"></div>
+        </div>
+        <div class="ch-contact-wrap">
+            <div class="ch-contact-info" data-reveal data-delay="100">
+                <div class="ch-contact-item">
+                    <span class="ch-contact-icon">📍</span>
+                    <div>
+                        <p class="ch-contact-label">Location</p>
+                        <p class="ch-contact-val">Mumbai, Pan India</p>
+                    </div>
+                </div>
+                <div class="ch-contact-item">
+                    <span class="ch-contact-icon">📞</span>
+                    <div>
+                        <p class="ch-contact-label">Phone</p>
+                        <p class="ch-contact-val">+91 89991 94100</p>
+                    </div>
+                </div>
+                <div class="ch-contact-item">
+                    <span class="ch-contact-icon">✉️</span>
+                    <div>
+                        <p class="ch-contact-label">Email</p>
+                        <p class="ch-contact-val">hello@crazyhedz.in</p>
+                    </div>
+                </div>
+            </div>
+            <div class="ch-contact-form" data-reveal data-delay="200">
+                <input type="text" class="ch-form-input" id="contactName" placeholder="Your Name" autocomplete="name" />
+                <input type="email" class="ch-form-input" id="contactEmail" placeholder="Email Address" autocomplete="email" />
+                <input type="tel" class="ch-form-input" id="contactPhone" placeholder="Phone Number" autocomplete="tel" />
+                <textarea class="ch-form-input ch-textarea" id="contactMessage" rows="4" placeholder="Your message..."></textarea>
+                <button class="ch-form-submit" id="contactSubmitBtn">Send Message →</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-top">
+
+            <!-- Brand -->
+            <div class="footer-brand" data-reveal>
+                <div class="footer-logo">CRAZY HEDZ</div>
+                <p class="footer-tagline">For the bold. For the loud.<br>For those who live for the night.</p>
+                <p class="footer-brand-desc">India's most electric youth event brand — creating nights that live in your memory and sets that move your soul.</p>
+                <div class="footer-socials">
+                    <a href="#" class="social-link" aria-label="Instagram">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Facebook">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="YouTube">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.57 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+                            <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="SoundCloud">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 18v-3a5 5 0 0 1 5-5h.1a7 7 0 0 1 13.4 2.1A4 4 0 0 1 20 20H7a5 5 0 0 1-5-5v-2z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Nav columns -->
+            <div class="footer-nav">
+
+                <div class="footer-col" data-reveal data-delay="100">
+                    <h4 class="footer-heading">Explore</h4>
+                    <ul>
+                        <li><a href="crazyheads.html">Home</a></li>
+                        <li><a href="#tickets">Events</a></li>
+                        <li><a href="#tickets">Tickets</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#">Gallery</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col" data-reveal data-delay="200">
+                    <h4 class="footer-heading">Events</h4>
+                    <ul>
+                        <li><a href="#tickets">Live Now</a></li>
+                        <li><a href="#tickets">Upcoming</a></li>
+                        <li><a href="#tickets">Past Events</a></li>
+                        <li><a href="#">Festivals</a></li>
+                        <li><a href="#">Club Nights</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col" data-reveal data-delay="300">
+                    <h4 class="footer-heading">Join Us</h4>
+                    <ul>
+                        <li><a href="#join" class="partner-trigger-link">Partner with College</a></li>
+                        <li><a href="#join" class="ambassador-trigger-link">Be an Ambassador</a></li>
+                        <li><a href="#about">Our Story</a></li>
+                        <li><a href="#">Press &amp; Media</a></li>
+                        <li><a href="avora.html">Avora Luxury</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col" data-reveal data-delay="400">
+                    <h4 class="footer-heading">Contact</h4>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            Mumbai, Pan India
+                        </li>
+                        <li>
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.37 2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            +91 89991 94100
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-bottom">
+            <p class="footer-copyright">© 2025 Crazy HEDZ Entertainment Pvt. Ltd. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <span>·</span>
+                <a href="#">Terms of Service</a>
+                <span>·</span>
+                <a href="#">Refund Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Action Button -->
+    <a href="#" class="whatsapp-btn" aria-label="Chat with us on WhatsApp">
+        <svg viewBox="0 0 24 24" width="30" height="30" fill="white">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+
+    <!-- ═══════════════════════════════════════════════════════
+         FORM 1 — Get Your Tickets
+    ════════════════════════════════════════════════════════════ -->
+    <div class="booking-overlay" id="bookingOverlay">
+        <div class="booking-modal">
+            <button class="booking-close" id="bookingClose">✕</button>
+
+            <div class="booking-header">
+                <p class="booking-event-label" id="bookingEventName"></p>
+                <h3 class="booking-title">Get Your Tickets</h3>
+            </div>
+
+            <!-- Three-tier ticket type selection -->
+            <div class="ticket-type-row">
+                <div class="ticket-type-card active" data-type="normal">
+                    <span class="type-badge">General Access</span>
+                    <span class="type-price" id="normalPrice"></span>
+                    <span class="type-desc">Standard Entry</span>
+                </div>
+                <div class="ticket-type-card" data-type="premium">
+                    <span class="type-badge">VIP Access</span>
+                    <span class="type-price" id="premiumPrice"></span>
+                    <span class="type-desc">Priority + Lounge</span>
+                </div>
+                <div class="ticket-type-card" data-type="luxury">
+                    <span class="type-badge">Lounge + VIP</span>
+                    <span class="type-price" id="luxuryPrice"></span>
+                    <span class="type-desc">All Access Suite</span>
+                </div>
+            </div>
+
+            <!-- Fields -->
+            <div class="booking-fields">
+                <input type="text" class="booking-input" id="ticketFullName" placeholder="Full Name" />
+                <input type="tel" class="booking-input" id="ticketPhone" placeholder="Phone Number" />
+                <div class="referral-field-wrap">
+                    <input type="text" class="booking-input" id="referralCodeInput" placeholder="Referral Code (optional)" />
+                    <a href="#" class="referral-get-link" target="_blank" rel="noopener">Get a Referral Code ↗</a>
+                </div>
+            </div>
+
+            <!-- Payment Section -->
+            <div class="payment-section">
+                <p class="payment-section-label">Complete Payment</p>
+                <p class="payment-desc">Scan the QR below or transfer to our bank account. Upload your payment screenshot to confirm your booking.</p>
+
+                <div class="payment-methods-row">
+                    <!-- QR Code Scanner -->
+                    <div class="payment-qr-wrap">
+                        <div class="qr-placeholder">
+                            <svg width="80" height="80" viewBox="0 0 100 100" fill="none">
+                                <rect x="5" y="5" width="35" height="35" rx="3" stroke="rgba(168,85,247,0.6)" stroke-width="3" fill="none"/>
+                                <rect x="15" y="15" width="15" height="15" rx="1" fill="rgba(168,85,247,0.5)"/>
+                                <rect x="60" y="5" width="35" height="35" rx="3" stroke="rgba(168,85,247,0.6)" stroke-width="3" fill="none"/>
+                                <rect x="70" y="15" width="15" height="15" rx="1" fill="rgba(168,85,247,0.5)"/>
+                                <rect x="5" y="60" width="35" height="35" rx="3" stroke="rgba(168,85,247,0.6)" stroke-width="3" fill="none"/>
+                                <rect x="15" y="70" width="15" height="15" rx="1" fill="rgba(168,85,247,0.5)"/>
+                                <rect x="55" y="55" width="8" height="8" fill="rgba(168,85,247,0.5)"/>
+                                <rect x="68" y="55" width="8" height="8" fill="rgba(168,85,247,0.5)"/>
+                                <rect x="81" y="55" width="14" height="8" fill="rgba(168,85,247,0.5)"/>
+                                <rect x="55" y="68" width="8" height="8" fill="rgba(168,85,247,0.5)"/>
+                                <rect x="68" y="68" width="8" height="8" fill="rgba(168,85,247,0.5)"/>
+                                <rect x="55" y="81" width="8" height="14" fill="rgba(168,85,247,0.5)"/>
+                                <rect x="68" y="81" width="27" height="8" fill="rgba(168,85,247,0.5)"/>
+                            </svg>
+                        </div>
+                        <p class="qr-label">Scan to Pay · UPI</p>
+                        <p class="qr-id">crazyhedz@upi</p>
+                    </div>
+
+                    <!-- Bank Details -->
+                    <div class="bank-details-wrap">
+                        <p class="bank-detail-title">Bank Transfer</p>
+                        <div class="bank-detail-row">
+                            <span class="bdr-label">Account Name</span>
+                            <span class="bdr-val">Crazy HEDZ Entertainment</span>
+                        </div>
+                        <div class="bank-detail-row">
+                            <span class="bdr-label">Account No.</span>
+                            <span class="bdr-val">XXXX XXXX 1234</span>
+                        </div>
+                        <div class="bank-detail-row">
+                            <span class="bdr-label">IFSC</span>
+                            <span class="bdr-val">HDFC0001234</span>
+                        </div>
+                        <div class="bank-detail-row">
+                            <span class="bdr-label">Bank</span>
+                            <span class="bdr-val">HDFC Bank</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Screenshot Upload -->
+                <div class="screenshot-upload-wrap">
+                    <label class="screenshot-label" for="paymentScreenshot">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                        Upload Payment Screenshot
+                    </label>
+                    <input type="file" id="paymentScreenshot" accept="image/*" class="screenshot-input" />
+                    <p class="screenshot-filename" id="screenshotFilename">No file selected</p>
+                </div>
+            </div>
+
+            <button class="booking-submit" id="bookingSubmitBtn">Confirm Booking →</button>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         FORM 2 — Partner with Your College
+    ════════════════════════════════════════════════════════════ -->
+    <div class="ch-form-overlay" id="partnerOverlay">
+        <div class="ch-form-modal">
+            <button class="ch-form-close" id="partnerClose">✕</button>
+
+            <div class="ch-form-header">
+                <p class="ch-form-label">Institutional Collaboration</p>
+                <h3 class="ch-form-title">Partner with Your College</h3>
+            </div>
+
+            <div class="ch-form-body">
+                <input type="text" class="ch-form-input" placeholder="College Name" />
+                <input type="text" class="ch-form-input" placeholder="Location (City, State)" />
+                <input type="number" class="ch-form-input" placeholder="Expected Footfall (estimated attendance)" min="0" />
+                <textarea class="ch-form-input ch-textarea" rows="3"
+                    placeholder="Describe your college — culture, events, student community..."></textarea>
+                <textarea class="ch-form-input ch-textarea" rows="3"
+                    placeholder="Why do you want CrazyHEDZ as a partner for your college?"></textarea>
+                <div class="ch-radio-group">
+                    <p class="ch-radio-label">Your Role</p>
+                    <div class="ch-radio-row">
+                        <label class="ch-radio-opt">
+                            <input type="radio" name="partnerRole" value="committee" />
+                            <span class="ch-radio-custom"></span>
+                            College Committee
+                        </label>
+                        <label class="ch-radio-opt">
+                            <input type="radio" name="partnerRole" value="ambassador" />
+                            <span class="ch-radio-custom"></span>
+                            Ambassador
+                        </label>
+                        <label class="ch-radio-opt">
+                            <input type="radio" name="partnerRole" value="other" />
+                            <span class="ch-radio-custom"></span>
+                            Other
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <button class="ch-form-submit">Submit Proposal →</button>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         FORM 3 — Be a CrazyHead Ambassador
+    ════════════════════════════════════════════════════════════ -->
+    <div class="ch-form-overlay" id="ambassadorOverlay">
+        <div class="ch-form-modal">
+            <button class="ch-form-close" id="ambassadorClose">✕</button>
+
+            <div class="ch-form-header">
+                <p class="ch-form-label">Student Ambassador Program</p>
+                <h3 class="ch-form-title">Be a CrazyHead</h3>
+            </div>
+
+            <div class="ch-form-body">
+                <input type="text" class="ch-form-input" placeholder="Full Name" />
+                <div class="ch-two-col">
+                    <input type="text" class="ch-form-input" placeholder="College Name" />
+                    <input type="text" class="ch-form-input" placeholder="College Location" />
+                </div>
+                <textarea class="ch-form-input ch-textarea" rows="2"
+                    placeholder="Residential Address"></textarea>
+                <div class="ch-two-col">
+                    <input type="tel" class="ch-form-input" placeholder="Phone Number" />
+                    <input type="email" class="ch-form-input" placeholder="Email Address" />
+                </div>
+                <input type="url" class="ch-form-input" placeholder="Instagram Profile Link (e.g. instagram.com/yourhandle)" />
+                <input type="number" class="ch-form-input" placeholder="Current Instagram Follower Count" min="0" />
+                <textarea class="ch-form-input ch-textarea" rows="3"
+                    placeholder="Tell us about your involvement in college committees or student organisations..."></textarea>
+                <textarea class="ch-form-input ch-textarea" rows="3"
+                    placeholder="Why do you want to be a CrazyHEDZ Ambassador?"></textarea>
+            </div>
+
+            <button class="ch-form-submit">Submit Application →</button>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         REFERRAL CODE REVEAL (shown after Ambassador submit)
+    ════════════════════════════════════════════════════════════ -->
+    <div class="ch-form-overlay" id="referralRevealOverlay">
+        <div class="ch-form-modal referral-reveal-modal">
+            <div class="rr-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+            </div>
+            <p class="rr-label">You're officially a</p>
+            <h3 class="rr-title">CrazyHead Ambassador</h3>
+            <p class="rr-sub">Share your referral code with friends. Every ticket booked with your code earns you rewards.</p>
+            <div class="rr-code-wrap">
+                <span class="rr-code" id="referralCodeDisplay"></span>
+                <button class="rr-copy-btn" id="referralCopyBtn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                    Copy
+                </button>
+            </div>
+            <button class="ch-form-submit" id="referralRevealClose">Done →</button>
+        </div>
+    </div>
+
+    <!-- Brand Switcher Dock -->
+    <div class="brand-dock">
+        <a href="avora.html" class="dock-item avora-dock" title="Avora Experiences">
+            <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+            <span class="dock-tooltip">Avora</span>
+        </a>
+        <div class="dock-divider"></div>
+        <a href="crazyheads.html" class="dock-item ch-dock" title="Crazy HEDZ">
+            <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+            <span class="dock-tooltip">Crazy Hedz</span>
+        </a>
+    </div>
+
+    <!-- Firebase Compat SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-init.js"></script>
+
+    <script src="js/navbar.js"></script>
+    <script src="js/crazyheads.js"></script>
+</body>
+</html>
